@@ -114,14 +114,20 @@ function setup(){
   father = new Oujabe();
   father.generateRandom("m");
   motherMenu = new Menu(mother,loci,25,50,"mother");
-  motherMenu.setup();
   fatherMenu = new Menu(father, loci, 585,50,"father");
-  fatherMenu.setup();
   childrenMenu = new ChildrenMenu(15, 435, mother, father);
   childrenMenu.setup();
+  displayOujabe();
 }
 
-function draw(){
+function mouseClicked(){
+  motherMenu.handleImput();
+  fatherMenu.handleImput();
+  childrenMenu.handleImput();
+  displayOujabe();
+}
+
+function displayOujabe(){
   background(245);
   textFont(ttLakes);
   motherMenu.display();
@@ -129,25 +135,4 @@ function draw(){
   mother.display(40,110);
   father.display(600,110);
   childrenMenu.display();
-}
-
-function mouseClicked(){
-  motherMenu.handleImput();
-  fatherMenu.handleImput();
-  childrenMenu.handleImput();
-}
-
-function newMother(){
-  console.log("newMother called");
-  mother.generateRandom("f");
-}
-
-function newFather(){
-  console.log("newFather called");
-  father.generateRandom("m");
-}
-
-function breedAgain(){
-  console.log("breedAgain called");
-  child.breed(mother, father);
 }

@@ -16,6 +16,7 @@ function Menu(animal, loci, x, y, name){
   this.buttonSize = 15;
   this.heigth = 400;
   this.width;
+  this.setup();
 }
 
 //this constructs the buttons for the Menu
